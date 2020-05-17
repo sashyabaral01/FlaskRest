@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Test</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+        <input id = "name" name="name">
+
+    <br>
+    <br>
+
+
+
+
+    <button onclick="btnClick()">Find Stores Near Me!</button>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+function btnClick(){
+var searchField = $('#name').val();
+alert(searchField)
+
+$.getJSON('http://localhost:5000/query?name=' +searchField, function(data){
+
+  $.each(data.data, function(key, val){
+    var email = val.email;
+    var lastName = val.last_name
+    document.write(email);
+    console.log(email)
+
+    console.log(lastName)
+    document.write (lastName)
+  })
+  });
+
+
+
+
+};
+
+
+
+
+</script>
+
+
+
+
+</html>
